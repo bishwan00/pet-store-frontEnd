@@ -1,0 +1,98 @@
+.navLinks li:nth-child(1)::before {
+  position: absolute;
+  content: "";
+  top: 18px;
+  /* left: 31%; */
+  -webkit-transform: translateX(-50%) translateY(-20px);
+  -ms-transform: translateX(-50%) translateY(-20px);
+  transform: translateX(-50%) translateY(-20px);
+  width: 55px;
+  height: 30px;
+  background-image: url(../../asset/active_s4.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  margin-left: 26px;
+
+  transition: all 0.5s ease;
+}
+.navLinks li:nth-child(2)::before {
+  position: absolute;
+  content: "";
+  top: 18px;
+  margin-left: 26px;
+  /* left: 50%; */
+  -webkit-transform: translateX(-50%) translateY(-20px);
+  -ms-transform: translateX(-50%) translateY(-20px);
+  transform: translateX(-50%) translateY(-20px);
+  width: 55px;
+  height: 30px;
+  background-image: url(../../asset/active_s4.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0;
+  margin-left: 26px;
+
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.navLinks li:nth-child(3)::before {
+  position: absolute;
+  content: "";
+  top: 18px;
+  /* left: 31%; */
+  -webkit-transform: translateX(-50%) translateY(-20px);
+  -ms-transform: translateX(-50%) translateY(-20px);
+  transform: translateX(-50%) translateY(-20px);
+  width: 55px;
+  height: 30px;
+  background-image: url(../../asset/active_s4.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0;
+  margin-left: 26px;
+
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.navLinks li:nth-child(4)::before {
+  position: absolute;
+  content: "";
+  top: 18px;
+  /* left: 31%; */
+  -webkit-transform: translateX(-50%) translateY(-20px);
+  -ms-transform: translateX(-50%) translateY(-20px);
+  transform: translateX(-50%) translateY(-20px);
+  width: 55px;
+  height: 30px;
+  background-image: url(../../asset/active_s4.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0;
+  margin-left: 26px;
+
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.navLinks li:hover::before {
+  opacity: 1;
+}
+
+.navLinks li:hover {
+  color: #4e1c99;
+}
+
+.navLinks .active {
+  color: #4e1c99;
+}
+@media (max-width: 768px) {
+  .navLinks li:hover::before {
+    opacity: 0;
+  }
+}
