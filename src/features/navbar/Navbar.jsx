@@ -28,16 +28,16 @@ const Navbar = () => {
         <div className="navLinks  md:static duration-500 absolute md:w-auto bg-white md:min-h-fit min-h-[50vh] top-14 right-[-100%] justify-center w-full flex  items-center ">
           {" "}
           <ul className="flex md:flex-row flex-col md:items-center md:w-auto w-12 md:gap-4 gap-8">
-            <li className="text-lg active cursor-pointer">
+            <li className="text-base active cursor-pointer">
               <a href="#">Home</a>
             </li>
-            <li className="text-lg cursor-pointer">
+            <li className="text-base cursor-pointer">
               <a href="#">Brand</a>
             </li>{" "}
-            <li className="text-lg cursor-pointer">
+            <li className="text-base cursor-pointer">
               <a href="#">Pharmacy</a>
             </li>{" "}
-            <li className="text-lg cursor-pointer">
+            <li className="text-base cursor-pointer">
               <a href="#">Products</a>
             </li>
           </ul>
@@ -45,7 +45,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <input
             type="text"
-            className="border-b placeholder-daisy-bush-900 pl-2 md:w-auto w-36 border-daisy-bush-500 outline-none"
+            className="border-b placeholder-daisy-bush-900 pl-2 md:w-auto w-32 border-daisy-bush-500 outline-none"
             placeholder="Search...."
           />
           <MdOutlineShoppingCartCheckout className="text-daisy-bush-950 text-lg " />
@@ -53,12 +53,12 @@ const Navbar = () => {
           {menu ? (
             <RiMenuUnfoldFill
               onClick={() => onToggleMenu(this)}
-              className="text-3xl cursor-pointer md:hidden"
+              className="text-2xl cursor-pointer md:hidden"
             />
           ) : (
             <RiMenuFoldLine
               onClick={() => onToggleMenu(this)}
-              className="text-3xl cursor-pointer md:hidden"
+              className="text-2xl cursor-pointer md:hidden"
             />
           )}
         </div>
