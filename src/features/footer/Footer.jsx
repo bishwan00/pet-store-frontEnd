@@ -5,7 +5,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <div className="py-5 px-5 bg-daisy-bush-50">
+    <div className="py-5 px-5 bg-white border-spacing-1 border-t border-daisy-bush-100">
       <div className="flex justify-around items-center flex-wrap md:gap-0 gap-y-4">
         <div>
           <img className="w-32" src={logo} alt="" />

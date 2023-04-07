@@ -4,6 +4,7 @@ import Navbar from "./features/navbar/Navbar";
 import Home from "./page/Home";
 import Footer from "./features/footer/Footer";
 import { Routes, Route } from "react-router-dom";
+import Products from "./page/Products";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       </Container>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
 
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>

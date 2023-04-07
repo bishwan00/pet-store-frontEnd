@@ -3,6 +3,8 @@ import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { RiMenuFoldLine, RiMenuUnfoldFill } from "react-icons/ri";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+
 import Logo from "../../asset/logo.png";
 import "./navbar.css";
 const Navbar = () => {
@@ -28,18 +30,20 @@ const Navbar = () => {
         <div className="navLinks  md:static duration-500 absolute md:w-auto bg-white md:min-h-fit min-h-[50vh] top-14 right-[-100%] justify-center w-full flex  items-center ">
           {" "}
           <ul className="flex md:flex-row flex-col md:items-center md:w-auto w-12 md:gap-4 gap-8">
-            <li className="text-base active cursor-pointer">
-              <a href="#">Home</a>
-            </li>
-            <li className="text-base cursor-pointer">
-              <a href="#">Brand</a>
-            </li>{" "}
-            <li className="text-base cursor-pointer">
-              <a href="#">Pharmacy</a>
-            </li>{" "}
-            <li className="text-base cursor-pointer">
-              <a href="#">Products</a>
-            </li>
+            <NavLink to="/">
+              <li className="text-base  cursor-pointer">Home</li>
+            </NavLink>
+            <NavLink to="/brand">
+              <li className="text-base cursor-pointer">Brand</li>
+            </NavLink>{" "}
+            <NavLink to="/pharmacy">
+              {" "}
+              <li className="text-base cursor-pointer">Pharmacy</li>
+            </NavLink>{" "}
+            <NavLink to="/products">
+              {" "}
+              <li className="text-base cursor-pointer">Products</li>
+            </NavLink>
           </ul>
         </div>
         <div className="flex items-center gap-4">
