@@ -2,6 +2,9 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import Button from "../button/Button";
 import Img from "../../asset/pngwing 7.svg";
+import { increment } from "../../redux/counterSlice";
+
+import { useDispatch } from "react-redux";
 const Cards = () => {
   const stars = Array(5).fill(0);
   const rate = 4;
@@ -9,7 +12,7 @@ const Cards = () => {
     orange: "#FFBA5A",
     gray: "#a9a9a9",
   };
-
+  const dispatch = useDispatch();
   return (
     <div className="flex flex-col items-center justify-between w-60">
       <div className="p-4 bg-daisy-bush-100">
@@ -40,7 +43,10 @@ const Cards = () => {
           libero animi quas vita
         </div>
         <div className="flex justify-start items-center gap-5  mb-4 mt-16">
-          <Button text="Add to Card" />
+          <Button
+            text="Add to Card"
+            handleClick={() => dispatch(increment())}
+          />
           <span className="text-2xl text-daisy-bush-800">52$</span>
         </div>
       </div>

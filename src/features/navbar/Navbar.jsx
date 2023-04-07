@@ -4,11 +4,13 @@ import { CgProfile } from "react-icons/cg";
 import { RiMenuFoldLine, RiMenuUnfoldFill } from "react-icons/ri";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Logo from "../../asset/logo.png";
 import "./navbar.css";
 const Navbar = () => {
   const [menu, setmenu] = useState(false);
+  const count = useSelector((state) => state.counter.value);
 
   const onToggleMenu = (e) => {
     setmenu(!menu);
@@ -16,7 +18,7 @@ const Navbar = () => {
     navLinks.classList.toggle("right-[0]");
   };
   return (
-    <div className="bg-top-img h-20 flex items-end ">
+    <div className="bg-top-img h-20 flex items-end fixed w-full top-0">
       <div
         className={
           menu
@@ -27,7 +29,7 @@ const Navbar = () => {
         <div className="">
           <img className="w-28" src={Logo} alt="logo image" />
         </div>{" "}
-        <div className="navLinks  md:static duration-500 absolute md:w-auto bg-white md:min-h-fit min-h-[50vh] top-14 right-[-100%] justify-center w-full flex  items-center ">
+        <div className="navLinks  md:static duration-500 absolute md:w-auto bg-white md:min-h-fit min-h-[50vh] top-10 right-[-100%] justify-center w-full flex  items-center ">
           {" "}
           <ul className="flex md:flex-row flex-col md:items-center md:w-auto w-12 md:gap-4 gap-8">
             <NavLink to="/">
@@ -53,6 +55,13 @@ const Navbar = () => {
             placeholder="Search...."
           />
           <MdOutlineShoppingCartCheckout className="text-daisy-bush-950 text-lg " />
+          {count !== 0 ? (
+            <span className="md:right-10 top-1 right-20 bg-red rounded-[50%] text-xs w-3 text-center absolute">
+              {count}
+            </span>
+          ) : (
+            ""
+          )}
           <CgProfile className="text-daisy-bush-950 text-lg " />
           {menu ? (
             <RiMenuUnfoldFill

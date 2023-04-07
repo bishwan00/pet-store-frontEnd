@@ -3,7 +3,7 @@ import headerImg from "../../asset/headerImg.svg";
 import Button from "../button/Button";
 const Header = () => {
   return (
-    <div className="flex md:flex-row flex-col-reverse h-auto items-center mx-auto w-[92%] justify-around">
+    <div className="flex md:flex-row flex-col-reverse h-auto items-center mx-auto w-[92%] justify-around mt-20">
       <div className="md:self-start self-center md:mt-32 text-center md:text-left">
         <h1 className="font-bold xl:text-5xl  md:mb-20 text-3xl mb-6 ">
           Love them enough

@@ -9,6 +9,7 @@ const Products = () => {
     <div>
       <Container>
         <HeaderImg />
+
         <div className="bg-daisy-bush-900 h-[6px] w-full"></div>
         <div className="flex mt-10 flex-wrap justify-center md:justify-normal">
           <Filter />

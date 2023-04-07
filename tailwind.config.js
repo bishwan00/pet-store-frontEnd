@@ -6,6 +6,7 @@ export default {
       transparent: "transparent",
       current: "currentColor",
       white: "#ffffff",
+      red: "#FF0000",
       "daisy-bush": {
         50: "#f5f3ff",
         100: "#ede9fe",

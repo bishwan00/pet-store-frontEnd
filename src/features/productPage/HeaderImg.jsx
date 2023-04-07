@@ -3,7 +3,7 @@ import Img from "../../asset/Doggyrade_Mobile_Final 1.svg";
 
 const HeaderImg = () => {
   return (
-    <div>
+    <div className="mt-20">
       <img src={Img} alt="" />
     </div>
   );
