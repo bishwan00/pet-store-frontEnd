@@ -2,7 +2,7 @@ import React from "react";
 import img from "../../asset/homeCatImg.svg";
 const Stats = () => {
   return (
-    <div className="flex md:justify-start justify-center md:ml-28 items-center flex-wrap mt-20">
+    <div className="flex lg:justify-start justify-center lg:ml-28 items-center  flex-wrap mt-20">
       <div>
         <img src={img} alt="img" className="w-80" />
       </div>

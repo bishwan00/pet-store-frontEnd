@@ -5,6 +5,9 @@ import Header from "./features/header/Header";
 import Stats from "./features/stats/Stats";
 import TopHeader from "./features/topheader/TopHeader";
 import ShowCategories from "./features/categories/ShowCategories";
+import ShowBrands from "./features/brand/ShowBrands";
+import Button from "./features/button/Button";
+import ProductCards from "./features/product/ProductCards";
 
 function App() {
   return (
@@ -25,7 +28,17 @@ function App() {
         <ShowCategories />
       </Container>
       <Container>
-        <TopHeader text="Our Brands" />
+        <div className="bg-daisy-bush-50 my-20 py-2">
+          <TopHeader text="Our Brands" />
+
+          <ShowBrands />
+        </div>
+      </Container>
+      <Container>
+        <TopHeader text="Popular Products" />
+      </Container>
+      <Container>
+        <ProductCards />
       </Container>
     </div>
   );
