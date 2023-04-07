@@ -1,13 +1,9 @@
 import { useState } from "react";
 import Container from "./features/container/Container";
 import Navbar from "./features/navbar/Navbar";
-import Header from "./features/header/Header";
-import Stats from "./features/stats/Stats";
-import TopHeader from "./features/topheader/TopHeader";
-import ShowCategories from "./features/categories/ShowCategories";
-import ShowBrands from "./features/brand/ShowBrands";
-import Button from "./features/button/Button";
-import ProductCards from "./features/product/ProductCards";
+import Home from "./page/Home";
+import Footer from "./features/footer/Footer";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -15,30 +11,13 @@ function App() {
       <Container>
         <Navbar />
       </Container>
-      <Container>
-        <Header />
-      </Container>
-      <Container>
-        <Stats />
-      </Container>
-      <Container>
-        <TopHeader text="Popular Categories" />
-      </Container>
-      <Container>
-        <ShowCategories />
-      </Container>
-      <Container>
-        <div className="bg-daisy-bush-50 my-20 py-2">
-          <TopHeader text="Our Brands" />
+      <Routes>
+        <Route path="/" element={<Home />} />
 
-          <ShowBrands />
-        </div>
-      </Container>
+        {/* <Route path="*" element={<NotFound />} /> */}
+      </Routes>
       <Container>
-        <TopHeader text="Popular Products" />
-      </Container>
-      <Container>
-        <ProductCards />
+        <Footer />
       </Container>
     </div>
   );
