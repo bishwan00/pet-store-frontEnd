@@ -1,0 +1,84 @@
+.react-multiple-carousel__arrow::before {
+  color: #000 !important;
+  background-color: #ededed;
+  /* border-radius: 20px; */
+}
+.react-multiple-carousel__arrow:hover {
+  background-color: transparent;
+  /* border-radius: 20px; */
+}
+.react-multi-carousel-item {
+  /* width: 20% !important; */
+  margin-right: 24px;
+  /* width: 345px !important; */
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  height: 100%;
+  overflow: hidden !important;
+}
+.card {
+  border: 1px solid #ededed;
+  padding: 30px 15px 15px;
+  position: relative;
+  border-radius: 15px;
+  padding-bottom: 15px;
+  overflow: hidden;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  /* margin-bottom: 24px; */
+}
+.content {
+  margin-top: 2%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.react-multi-carousel-item:hover .card button {
+  opacity: 1;
+  bottom: 77px;
+}
+.react-multi-carousel-item:hover .content {
+  bottom: 20px;
+}
+.card-img {
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transform-origin: top;
+  transition: all 0.4s ease;
+}
+.react-multi-carousel-item:hover img {
+  /* margin-bottom: 5px; */
+
+  transform: scale(1, 0.9);
+}
+
+.card button {
+  position: absolute;
+  bottom: 15px;
+  left: 28%;
+
+  -webkit-transform: translateY(70px);
+  -ms-transform: translateY(70px);
+  transform: translateY(70px);
+  opacity: 0;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+@media (max-width: 400px) {
+  .content {
+    margin-top: 10px;
+    left: 0;
+    font-size: 11px;
+  }
+  .card button {
+    font-size: 15px !important;
+  }
+}

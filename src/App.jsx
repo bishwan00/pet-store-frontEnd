@@ -5,6 +5,7 @@ import Home from "./page/Home";
 import Footer from "./features/footer/Footer";
 import { Routes, Route } from "react-router-dom";
 import Products from "./page/Products";
+import SingleProduct from "./page/SingleProduct";
 
 function App() {
   return (
@@ -14,7 +15,11 @@ function App() {
       </Container>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
+
+        <Route path="/products">
+          <Route index element={<Products />} />
+          <Route path=":id" element={<SingleProduct />} />
+        </Route>
 
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>

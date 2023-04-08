@@ -2,6 +2,7 @@ import React from "react";
 import SingleCard from "./SingleCard";
 import ProductImg from "../../asset/pngwing 7.svg";
 import Button from "../button/Button";
+import { NavLink } from "react-router-dom";
 
 const ProductCards = () => {
   return (
@@ -13,7 +14,9 @@ const ProductCards = () => {
         <SingleCard img={ProductImg} />
       </div>
       <div className="flex justify-center my-20">
-        <Button text="Show More" />
+        <NavLink to="/products">
+          <Button text="Show More" />
+        </NavLink>
       </div>
     </div>
   );

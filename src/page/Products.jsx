@@ -3,6 +3,7 @@ import HeaderImg from "../features/productPage/HeaderImg";
 import Filter from "../features/productPage/Filter";
 import Cards from "../features/productPage/Cards";
 import Container from "../features/container/Container";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   return (
@@ -14,12 +15,24 @@ const Products = () => {
         <div className="flex mt-10 flex-wrap justify-center md:justify-normal">
           <Filter />
           <div className=" w-[70%] flex flex-wrap justify-center md:justify-end gap-y-6 md:gap-x-10">
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
+            <Link to="/products/id">
+              <Cards />
+            </Link>
+            <Link to="/products/id">
+              <Cards />
+            </Link>{" "}
+            <Link to="/products/id">
+              <Cards />
+            </Link>{" "}
+            <Link to="/products/id">
+              <Cards />
+            </Link>{" "}
+            <Link to="/products/id">
+              <Cards />
+            </Link>{" "}
+            <Link to="/products/id">
+              <Cards />
+            </Link>
           </div>
         </div>
       </Container>

@@ -18,7 +18,7 @@ const Navbar = () => {
     navLinks.classList.toggle("right-[0]");
   };
   return (
-    <div className="bg-top-img h-20 flex items-end fixed w-full top-0">
+    <div className="bg-top-img z-50 h-20 flex items-end fixed w-full top-0">
       <div
         className={
           menu
