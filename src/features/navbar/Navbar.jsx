@@ -18,7 +18,7 @@ const Navbar = () => {
     navLinks.classList.toggle("right-[0]");
   };
   return (
-    <div className="bg-top-img z-50 h-20 flex items-end fixed w-full top-0">
+    <div className="bg-top-img z-10  h-20 flex items-end fixed w-full top-0">
       <div
         className={
           menu
@@ -56,7 +56,7 @@ const Navbar = () => {
           />
           <MdOutlineShoppingCartCheckout className="text-daisy-bush-950 text-lg " />
           {count !== 0 ? (
-            <span className="md:right-10 top-1 right-20 bg-daisy-bush-900 text-white rounded-[50%] text-xs w-3 text-center absolute">
+            <span className="md:right-10 top-1 z-50 right-20 bg-daisy-bush-900 text-white rounded-[50%] text-xs w-3 text-center absolute">
               {count}
             </span>
           ) : (
