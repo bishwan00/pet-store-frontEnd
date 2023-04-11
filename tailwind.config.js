@@ -36,7 +36,7 @@ export default {
     },
     extend: {
       backgroundImage: {
-        "top-img": "url('../../asset/top_nav_s4.png')",
+        "top-img": "url('./src/asset/top_nav_s4.png')",
       },
       fontFamily: {
         NunitoSans: ["NunitoSans", "sans-serif"],
