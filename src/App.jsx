@@ -6,10 +6,12 @@ import Footer from "./features/footer/Footer";
 import { Routes, Route } from "react-router-dom";
 import Products from "./page/Products";
 import SingleProduct from "./page/SingleProduct";
+import ScrollToTop from "./features/scroll/ScrollToUp";
 
 function App() {
   return (
     <div>
+      <ScrollToTop />
       <Container>
         <Navbar />
       </Container>
