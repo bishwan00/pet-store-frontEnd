@@ -36,8 +36,7 @@ export default {
     },
     extend: {
       backgroundImage: {
-        "top-img":
-          "url('https://homepages.cae.wisc.edu/~ece533/images/airplane.png')",
+        "top-img": "url('./src/asset/top_nav_s4.png')",
       },
       fontFamily: {
         NunitoSans: ["NunitoSans", "sans-serif"],
