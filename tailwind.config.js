@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
       transparent: "transparent",
@@ -36,7 +36,7 @@ export default {
     },
     extend: {
       backgroundImage: {
-        "top-img": "url('./src/asset/top_nav_s4.png')",
+        "top-img": "url('../../src/asset/top_nav_s4.png')",
       },
       fontFamily: {
         NunitoSans: ["NunitoSans", "sans-serif"],
