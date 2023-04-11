@@ -4,8 +4,8 @@ const Description = () => {
   return (
     <div className="flex flex-col items-center mt-20">
       <h1 className="text-4xl font-bold mb-5">Description</h1>
-      <div className="bg-daisy-bush-200 h-[2px] w-[92%] mb-3"></div>
-      <div className="w-[92%] text-pale-sky-400 md:text-left text-center">
+      <div className="bg-daisy-bush-200 h-[2px] w-[70%] mb-3"></div>
+      <div className="w-[70%] text-pale-sky-400 md:text-left text-center">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio minus
         veniam aliquid sed cum. Ducimus, error perferendis. Sequi perferendis ea
         dignissimos eveniet, qui, hic laborum ducimus doloremque, itaque

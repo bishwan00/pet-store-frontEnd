@@ -61,8 +61,7 @@
 .card button {
   position: absolute;
   bottom: 15px;
-  left: 28%;
-
+  left: 38px;
   -webkit-transform: translateY(70px);
   -ms-transform: translateY(70px);
   transform: translateY(70px);
