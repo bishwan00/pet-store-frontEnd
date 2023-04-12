@@ -20,6 +20,7 @@ export default {
         900: "#4e1c99",
         950: "#2f0f66",
       },
+      call: "#FCF5FF",
       "pale-sky": {
         50: "#f5f5f6",
         100: "#e4e5e9",
