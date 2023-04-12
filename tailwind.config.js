@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+// import image from "./src/asset/top_nav_s4.png"
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -37,7 +38,7 @@ export default {
     },
     extend: {
       backgroundImage: {
-        "top-img": "url('./src/asset/top_nav_s4.png')",
+        "top-img": "url('/src/asset/top_nav_s4.png')",
       },
       fontFamily: {
         NunitoSans: ["NunitoSans", "sans-serif"],
