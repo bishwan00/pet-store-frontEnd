@@ -7,10 +7,11 @@ import { Routes, Route } from "react-router-dom";
 import Products from "./page/Products";
 import SingleProduct from "./page/SingleProduct";
 import ScrollToTop from "./features/scroll/ScrollToUp";
+import Login from "./page/Login";
 
 function App() {
   return (
-    <div>
+    <div className="min-h-[100%]">
       <ScrollToTop />
       <Container>
         <Navbar />
@@ -22,6 +23,7 @@ function App() {
           <Route index element={<Products />} />
           <Route path=":id" element={<SingleProduct />} />
         </Route>
+        <Route path="/signin" element={<Login />} />
 
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
