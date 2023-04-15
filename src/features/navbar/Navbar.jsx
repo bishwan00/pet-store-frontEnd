@@ -3,19 +3,24 @@ import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { RiMenuFoldLine, RiMenuUnfoldFill } from "react-icons/ri";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import Logo from "../../asset/logo.png";
 import "./navbar.css";
 const Navbar = () => {
-  const [menu, setmenu] = useState(false);
+  const [menu, setMenu] = useState(false);
+  const [profile, setProfile] = useState(false);
   const count = useSelector((state) => state.counter.value);
 
   const onToggleMenu = (e) => {
-    setmenu(!menu);
+    setMenu(!menu);
+    setProfile(false);
     const navLinks = document.querySelector(".navLinks");
     navLinks.classList.toggle("right-[0]");
+  };
+  const onToggleProfile = (e) => {
+    setProfile(!profile);
   };
   return (
     <div className="bg-top-img z-10  h-20 flex items-end fixed w-full top-0">
@@ -32,17 +37,17 @@ const Navbar = () => {
         <div className="navLinks  md:static duration-500 absolute md:w-auto bg-white md:min-h-fit min-h-[50vh] top-10 right-[-100%] justify-center w-full flex  items-center ">
           {" "}
           <ul className="flex md:flex-row flex-col md:items-center md:w-auto w-12 md:gap-4 gap-8">
-            <NavLink to="/">
+            <NavLink onClick={() => onToggleMenu(this)} to="/">
               <li className="text-base  cursor-pointer">Home</li>
             </NavLink>
-            <NavLink to="/brand">
+            <NavLink onClick={() => onToggleMenu(this)} to="/brand">
               <li className="text-base cursor-pointer">Brand</li>
             </NavLink>{" "}
-            <NavLink to="/pharmacy">
+            <NavLink onClick={() => onToggleMenu(this)} to="/pharmacy">
               {" "}
               <li className="text-base cursor-pointer">Pharmacy</li>
             </NavLink>{" "}
-            <NavLink to="/products">
+            <NavLink onClick={() => onToggleMenu(this)} to="/products">
               {" "}
               <li className="text-base cursor-pointer">Products</li>
             </NavLink>
@@ -62,7 +67,11 @@ const Navbar = () => {
           ) : (
             ""
           )}
-          <CgProfile className="text-daisy-bush-950 text-lg " />
+          <CgProfile
+            onClick={() => onToggleProfile(this)}
+            className="text-daisy-bush-950 text-lg cursor-pointer"
+          />
+
           {menu ? (
             <RiMenuUnfoldFill
               onClick={() => onToggleMenu(this)}
@@ -76,6 +85,27 @@ const Navbar = () => {
           )}
         </div>
       </div>
+      {profile ? (
+        <div className="absolute right-5 top-20 z-50 bg-daisy-bush-50 w-48 rounded-b-lg text-center">
+          <ul className="border-b-2 border-daisy-bush-800 mt-4">
+            <Link to="">
+              <li>Profile</li>
+            </Link>
+          </ul>
+          <Link
+            to="/signin"
+            onClick={() => {
+              setProfile(false);
+            }}
+          >
+            <button className="bg-daisy-bush-900 text-white w-auto py-[5px] px-[25px] rounded-md my-4 ">
+              <span className="flex gap-2 items-center">Login</span>
+            </button>
+          </Link>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

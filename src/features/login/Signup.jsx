@@ -1,7 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import img from "../../asset/undraw_step_to_the_sun_nxqq.svg";
 import { MdOutlinePets } from "react-icons/md";
+const strengthLabels = ["weak", "medium", "strong"];
+import "./signup.css";
+
 const Signup = ({ handleInput }) => {
+  const [strength, setStrength] = useState("");
+  const handleChange = (event) => {
+    getStrength(event.target.value);
+  };
+  const getStrength = (password) => {
+    let strengthIndicator = -1,
+      upper = false,
+      lower = false,
+      numbers = false;
+    for (let index = 0; index < password.length; index++) {
+      const char = password.charCodeAt(index);
+      if (!upper && char >= 65 && char <= 90) {
+        upper = true;
+        strengthIndicator++;
+      }
+      if (!numbers && char >= 48 && char <= 57) {
+        numbers = true;
+        strengthIndicator++;
+      }
+      if (!lower && char >= 97 && char <= 122) {
+        lower = true;
+        strengthIndicator++;
+      }
+    }
+    setStrength(strengthLabels[strengthIndicator]);
+  };
   return (
     <div className="flex justify-center items-center">
       <div className=" flex flex-col md:flex-row items-center bg-daisy-bush-200 justify-between lg:w-[55%] w-[95%]   bg-opacity-40 shadow-lg backdrop-blur-md backdrop-filter border border-opacity-25 border-white rounded-md">
@@ -42,12 +71,21 @@ const Signup = ({ handleInput }) => {
               type="text"
             />{" "}
             <input
+              name="password"
+              spellCheck="false"
               type="password"
+              onChange={handleChange}
               className="bg-transparent border-b-2 w-80 md:w-96 rounded-sm outline-none text-daisy-bush-900 placeholder:text-daisy-bush-900 pl-4"
               placeholder="PASSWORD"
             />{" "}
+            <div className={`bars ${strength} md:w-auto w-80 my-0`}>
+              <div></div>
+            </div>
+            <div className="strength">
+              {strength && <>{strength} password</>}
+            </div>
             <input
-              className="bg-transparent border-b-2 md:w-96 w-80 rounded-sm outline-none text-daisy-bush-900 placeholder:text-daisy-bush-900 pl-4"
+              className="bg-transparent border-b-2 md:w-96 w-80 rounded-sm mt-0 outline-none text-daisy-bush-900 placeholder:text-daisy-bush-900 pl-4"
               placeholder="CONFIRM-PASSWORD"
               type="password"
             />{" "}
