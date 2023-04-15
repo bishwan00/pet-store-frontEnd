@@ -3,21 +3,21 @@ import img from "../../asset/undraw_welcome_cats_thqn 1.svg";
 import { MdOutlinePets } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const Signin = () => {
+const Signin = ({ handleInput }) => {
   return (
     <div className="flex justify-center items-center">
-      <div className="bg-daisy-bush-900 flex flex-col items-center justify-center  md:p-10 p-2  bg-opacity-40 shadow-lg backdrop-blur-md backdrop-filter border border-opacity-25 border-white rounded-md">
+      <div className="bg-daisy-bush-200 flex flex-col items-center justify-center  md:p-10 p-2  bg-opacity-40 shadow-lg backdrop-blur-md backdrop-filter border border-opacity-25 border-white rounded-md">
         <div>
           <img src={img} alt="image" className="w-60" />
         </div>
         <form className="flex flex-col w-80 items-center justify-center gap-4 mt-10">
           <input
-            type="text"
-            className="bg-daisy-bush-200 w-52 rounded-sm outline-none text-daisy-bush-900 placeholder:text-daisy-bush-900 pl-4"
-            placeholder="USERNAME"
+            type="email"
+            className="bg-transparent border-b-2 w-52 rounded-sm outline-none text-daisy-bush-900 placeholder:text-daisy-bush-900 pl-4"
+            placeholder="E-MAIL"
           />{" "}
           <input
-            className="bg-daisy-bush-200 w-52 rounded-sm outline-none text-daisy-bush-900 placeholder:text-daisy-bush-900 pl-4"
+            className="bg-transparent border-b-2 w-52 rounded-sm outline-none text-daisy-bush-900 placeholder:text-daisy-bush-900 pl-4"
             placeholder="PASSWORD"
             type="password"
           />
@@ -32,7 +32,9 @@ const Signin = () => {
         </form>
         <div className="mt-5">
           {" "}
-          <Link to="/signup">Don't have an account?</Link>
+          <span className="cursor-pointer" onClick={handleInput}>
+            Don't have an account?
+          </span>
         </div>
       </div>
     </div>

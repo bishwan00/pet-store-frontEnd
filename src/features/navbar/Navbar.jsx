@@ -56,7 +56,7 @@ const Navbar = () => {
           />
           <MdOutlineShoppingCartCheckout className="text-daisy-bush-950 text-lg " />
           {count !== 0 ? (
-            <span className="md:right-10 top-1 z-50 right-20 bg-daisy-bush-900 text-white rounded-[50%] text-xs w-3 text-center absolute">
+            <span className="md:right-10 top-1 z-50 right-20 bg-daisy-bush-900 text-white w-5 rounded-[100%] text-xs w-3 text-center absolute">
               {count}
             </span>
           ) : (
