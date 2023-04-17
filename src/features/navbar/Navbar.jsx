@@ -5,9 +5,9 @@ import { RiMenuFoldLine, RiMenuUnfoldFill } from "react-icons/ri";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-
 import Logo from "../../asset/logo.png";
 import "./navbar.css";
+
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [profile, setProfile] = useState(false);
@@ -27,18 +27,22 @@ const Navbar = () => {
       <div
         className={
           menu
-            ? "flex items-center	 justify-between mx-auto  bg-white h-12  w-full rounded-tl-2xl rounded-tr-2xl drop-shadow-sm	px-4"
-            : "flex items-center	 justify-between mx-auto overflow-hidden  bg-white h-12 w-full rounded-tl-2xl rounded-tr-2xl drop-shadow-sm	px-4"
+            ? "flex items-center	 justify-between mx-auto  bg-white h-12  w-full rounded-tl-2xl rounded-tr-2xl drop-shadow-sm	"
+            : "flex items-center	 justify-between mx-auto overflow-hidden  bg-white h-12 w-full rounded-tl-2xl rounded-tr-2xl drop-shadow-sm"
         }
       >
         <div className="">
-          <img className="w-28" src={Logo} alt="logo image" />
+          <img className="w-28 ml-4" src={Logo} alt="logo image" />
         </div>{" "}
         <div
-          className={`md:static  absolute top-[90%] md:w-auto bg-white md:min-h-fit min-h-[50vh]   justify-center w-full flex  items-center  ${menu}?right-[-100]:right[0]  transition   duration-500`}
+          className={
+            menu
+              ? "navLinks right[-100%]  md:static  absolute top-[90%] md:w-auto transition   duration-500 bg-white md:min-h-fit min-h-[50vh]   justify-center w-full flex   items-center"
+              : "navLinks right[0] md:static md:pointer-events-auto pointer-events-none absolute top-[90%] md:w-auto transition   duration-500 bg-white md:min-h-fit min-h-[50vh]   justify-center w-full flex   items-center"
+          }
         >
           {" "}
-          <ul className="flex md:flex-row flex-col md:items-center md:w-auto w-12 md:gap-4 gap-8">
+          <ul className="flex md:flex-row flex-col md:items-center md:w-auto w-12 md:gap-4 gap-8 ">
             <NavLink onClick={() => onToggleMenu(this)} to="/">
               <li className="text-base  cursor-pointer">Home</li>
             </NavLink>
@@ -71,24 +75,24 @@ const Navbar = () => {
           )}
           <CgProfile
             onClick={() => onToggleProfile(this)}
-            className="text-daisy-bush-950 text-lg cursor-pointer"
+            className="text-daisy-bush-950 text-lg cursor-pointer md:mr-4"
           />
 
           {menu ? (
             <RiMenuUnfoldFill
               onClick={() => onToggleMenu(this)}
-              className="text-2xl cursor-pointer md:hidden"
+              className="text-2xl cursor-pointer md:hidden mr-4"
             />
           ) : (
             <RiMenuFoldLine
               onClick={() => onToggleMenu(this)}
-              className="text-2xl cursor-pointer md:hidden"
+              className="text-2xl cursor-pointer md:hidden mr-4"
             />
           )}
         </div>
       </div>
       {profile ? (
-        <div className="transition  duration-1000 absolute right-5 top-20 z-50 bg-daisy-bush-50 w-48 rounded-b-lg text-center ">
+        <div className="absolute right-5 duration-1000 top-20 z-50 bg-daisy-bush-50 w-48 rounded-b-lg text-center ">
           <ul className="border-b-2 border-daisy-bush-800 mt-4">
             <Link to="">
               <li>Profile</li>
