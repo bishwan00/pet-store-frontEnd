@@ -16,8 +16,8 @@ const Navbar = () => {
   const onToggleMenu = (e) => {
     setMenu(!menu);
     setProfile(false);
-    const navLinks = document.querySelector(".navLinks");
-    navLinks.classList.toggle("right-[0]");
+
+    // laiba bika ba reactr
   };
   const onToggleProfile = (e) => {
     setProfile(!profile);
@@ -27,14 +27,16 @@ const Navbar = () => {
       <div
         className={
           menu
-            ? "flex items-center	 justify-between mx-auto  bg-white h-12 w-full rounded-tl-2xl rounded-tr-2xl drop-shadow-sm	px-4"
+            ? "flex items-center	 justify-between mx-auto  bg-white h-12  w-full rounded-tl-2xl rounded-tr-2xl drop-shadow-sm	px-4"
             : "flex items-center	 justify-between mx-auto overflow-hidden  bg-white h-12 w-full rounded-tl-2xl rounded-tr-2xl drop-shadow-sm	px-4"
         }
       >
         <div className="">
           <img className="w-28" src={Logo} alt="logo image" />
         </div>{" "}
-        <div className="navLinks  md:static duration-500 absolute md:w-auto bg-white md:min-h-fit min-h-[50vh] top-10 right-[-100%] justify-center w-full flex  items-center ">
+        <div
+          className={`md:static  absolute top-[90%] md:w-auto bg-white md:min-h-fit min-h-[50vh]   justify-center w-full flex  items-center  ${menu}?right-[-100]:right[0]  transition   duration-500`}
+        >
           {" "}
           <ul className="flex md:flex-row flex-col md:items-center md:w-auto w-12 md:gap-4 gap-8">
             <NavLink onClick={() => onToggleMenu(this)} to="/">
@@ -61,7 +63,7 @@ const Navbar = () => {
           />
           <MdOutlineShoppingCartCheckout className="text-daisy-bush-950 text-lg " />
           {count !== 0 ? (
-            <span className="md:right-10 top-1 z-50 right-20 bg-daisy-bush-900 text-white w-5 rounded-[100%] text-xs w-3 text-center absolute">
+            <span className="md:right-10 bottom-7 z-50 right-20 bg-daisy-bush-900 text-white w-4 rounded-[100%] text-xs  text-center absolute">
               {count}
             </span>
           ) : (
@@ -86,7 +88,7 @@ const Navbar = () => {
         </div>
       </div>
       {profile ? (
-        <div className="absolute right-5 top-20 z-50 bg-daisy-bush-50 w-48 rounded-b-lg text-center">
+        <div className="transition  duration-1000 absolute right-5 top-20 z-50 bg-daisy-bush-50 w-48 rounded-b-lg text-center ">
           <ul className="border-b-2 border-daisy-bush-800 mt-4">
             <Link to="">
               <li>Profile</li>
