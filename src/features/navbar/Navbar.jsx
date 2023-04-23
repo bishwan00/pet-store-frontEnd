@@ -65,14 +65,16 @@ const Navbar = () => {
             className="border-b placeholder-daisy-bush-900 pl-2 md:w-auto w-32 border-daisy-bush-500 outline-none"
             placeholder="Search...."
           />
-          <MdOutlineShoppingCartCheckout className="text-daisy-bush-950 text-lg " />
-          {count !== 0 ? (
-            <span className="md:right-10 bottom-7 z-50 right-20 bg-daisy-bush-900 text-white w-4 rounded-[100%] text-xs  text-center absolute">
-              {count}
-            </span>
-          ) : (
-            ""
-          )}
+          <Link to="/checkout">
+            <MdOutlineShoppingCartCheckout className="text-daisy-bush-950 text-lg " />
+            {count !== 0 ? (
+              <span className="md:right-10 bottom-7 z-50 right-20 bg-daisy-bush-900 text-white w-4 rounded-[100%] text-xs  text-center absolute">
+                {count}
+              </span>
+            ) : (
+              ""
+            )}
+          </Link>
           <CgProfile
             onClick={() => onToggleProfile(this)}
             className="text-daisy-bush-950 text-lg cursor-pointer md:mr-4"

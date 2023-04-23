@@ -15,7 +15,13 @@ const Checkout = () => {
           <span>Shopping Cart(2)</span>
         </div>
         <div className="flex justify-between mx-2">
-          <ButtonW text="CONTINUE SHOPPING" /> <Button text="CHECKOUT NOW" />
+          <Link>
+            <ButtonW text="CONTINUE SHOPPING" />{" "}
+          </Link>
+          <Link to="/checkout/billing">
+            {" "}
+            <Button text="CHECKOUT NOW" />
+          </Link>
         </div>
 
         <div className="flex justify-between flex-col-reverse md:flex-row md:flex-nowrap flex-wrap mt-10">
@@ -124,11 +130,11 @@ const Checkout = () => {
               </div>
             </div>
             <div className="mt-10">
-              <button className="bg-daisy-bush-900 w-full  text-white w-auto py-[10px] px-[15px] rounded-md">
-                <span className=" text-center">
-                  <Link className="border-b text-center">CHECKOUT NOW</Link>
-                </span>
-              </button>
+              <Link to="/checkout/billing" className="border-b text-center">
+                <button className="bg-daisy-bush-900 w-full  text-white w-auto py-[10px] px-[15px] rounded-md">
+                  <span className="border-b text-center">CHECKOUT NOW</span>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
