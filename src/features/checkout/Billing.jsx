@@ -7,7 +7,10 @@ const Billing = () => {
     <Container>
       <div className="my-40 flex gap-4 justify-center md:flex-row flex-col-reverse">
         <div className="md:w-[50%] mx-2">
-          <h1 className=" text-2xl mb-4 ml-4"> Billing address</h1>
+          <h1 className=" text-2xl mb-4 ml-4 text-daisy-bush-800">
+            {" "}
+            Billing address
+          </h1>
           <form class="w-full ">
             <div class="flex flex-wrap -mx-3 mb-6">
               <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">

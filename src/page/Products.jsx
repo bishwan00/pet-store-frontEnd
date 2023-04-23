@@ -4,6 +4,7 @@ import Filter from "../features/productPage/Filter";
 import Cards from "../features/productPage/Cards";
 import Container from "../features/container/Container";
 import { Link } from "react-router-dom";
+import Pagination from "../features/pagination/Pagination";
 
 const Products = () => {
   return (
@@ -15,22 +16,22 @@ const Products = () => {
         <div className="flex mt-10 flex-wrap justify-center md:justify-normal">
           <Filter />
           <div className=" w-[70%] flex flex-wrap justify-center md:justify-end gap-y-6 md:gap-x-10">
-          
-              <Cards />
-          
-           
-              <Cards />
-       
-           
-              <Cards />
-        
-              <Cards />
-           
-              <Cards />
-       
-              <Cards />
-       
+            <Cards />
+
+            <Cards />
+
+            <Cards />
+
+            <Cards />
+
+            <Cards />
+
+            <Cards />
           </div>
+        </div>
+        <div className="flex justify-center my-20">
+          {" "}
+          <Pagination />
         </div>
       </Container>
     </div>

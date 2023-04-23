@@ -32,7 +32,9 @@ const Navbar = () => {
         }
       >
         <div className="">
-          <img className="w-28 ml-4" src={Logo} alt="logo image" />
+          <Link to="/">
+            <img className="w-28 ml-4" src={Logo} alt="logo image" />
+          </Link>
         </div>{" "}
         <div
           className={
@@ -46,9 +48,9 @@ const Navbar = () => {
             <NavLink onClick={() => onToggleMenu(this)} to="/">
               <li className="text-base  cursor-pointer">Home</li>
             </NavLink>
-            <NavLink onClick={() => onToggleMenu(this)} to="/brand">
+            {/* <NavLink onClick={() => onToggleMenu(this)} to="/brand">
               <li className="text-base cursor-pointer">Brand</li>
-            </NavLink>{" "}
+            </NavLink>{" "} */}
             <NavLink onClick={() => onToggleMenu(this)} to="/pharmacy">
               {" "}
               <li className="text-base cursor-pointer">Pharmacy</li>
