@@ -15,7 +15,7 @@ const ProductCards = () => {
       </div>
       <div className="flex justify-center my-20">
         <NavLink to="/products">
-          <Button text="Show More" />
+          <Button text="Show More" icon="true" />
         </NavLink>
       </div>
     </div>

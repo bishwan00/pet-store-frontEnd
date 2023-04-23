@@ -15,24 +15,21 @@ const Products = () => {
         <div className="flex mt-10 flex-wrap justify-center md:justify-normal">
           <Filter />
           <div className=" w-[70%] flex flex-wrap justify-center md:justify-end gap-y-6 md:gap-x-10">
-            <Link to="/products/id">
+          
               <Cards />
-            </Link>
-            <Link to="/products/id">
+          
+           
               <Cards />
-            </Link>{" "}
-            <Link to="/products/id">
+       
+           
               <Cards />
-            </Link>{" "}
-            <Link to="/products/id">
+        
               <Cards />
-            </Link>{" "}
-            <Link to="/products/id">
+           
               <Cards />
-            </Link>{" "}
-            <Link to="/products/id">
+       
               <Cards />
-            </Link>
+       
           </div>
         </div>
       </Container>

@@ -23,6 +23,10 @@ const Content = () => {
         <div className="mb-5 text-center">
           {" "}
           <Button text="Add to Card" />
+          <div>
+            Qty:
+            <input type="number" />
+          </div>
         </div>
         <div className="bg-daisy-bush-200 h-[2px] w-96"></div>
       </div>

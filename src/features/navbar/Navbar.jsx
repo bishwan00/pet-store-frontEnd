@@ -23,7 +23,7 @@ const Navbar = () => {
     setProfile(!profile);
   };
   return (
-    <div className="bg-top-img z-10  h-20 flex items-end fixed w-full top-0">
+    <div className="bg-top-img z-10 max-w-[1536px] h-20 flex items-end fixed w-full top-0">
       <div
         className={
           menu

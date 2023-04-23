@@ -8,6 +8,9 @@ import Products from "./page/Products";
 import SingleProduct from "./page/SingleProduct";
 import ScrollToTop from "./features/scroll/ScrollToUp";
 import Login from "./page/Login";
+import Signup from "./features/login/Signup";
+import Checkout from "./features/checkout/Checkout.jsx";
+import Billing from "./features/checkout/Billing";
 
 function App() {
   return (
@@ -24,7 +27,11 @@ function App() {
           <Route path=":id" element={<SingleProduct />} />
         </Route>
         <Route path="/signin" element={<Login />} />
-
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/checkout">
+          <Route index element={<Checkout />} />
+          <Route path="billing" element={<Billing />} />
+        </Route>
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
       <Container>

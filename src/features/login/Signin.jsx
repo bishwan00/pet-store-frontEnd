@@ -3,7 +3,7 @@ import img from "../../asset/undraw_welcome_cats_thqn 1.svg";
 import { MdOutlinePets } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const Signin = ({ handleInput }) => {
+const Signin = () => {
   return (
     <div className="flex justify-center items-center">
       <div className="bg-daisy-bush-200 flex flex-col items-center justify-center  md:p-10 p-2  bg-opacity-40 shadow-lg backdrop-blur-md backdrop-filter border border-opacity-25 border-white rounded-md">
@@ -32,9 +32,9 @@ const Signin = ({ handleInput }) => {
         </form>
         <div className="mt-5">
           {" "}
-          <span className="cursor-pointer" onClick={handleInput}>
-            Don't have an account?
-          </span>
+          <Link to="/signup">
+            <span className="cursor-pointer">Don't have an account?</span>
+          </Link>
         </div>
       </div>
     </div>

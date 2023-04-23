@@ -15,7 +15,7 @@ const Header = () => {
           to keep your furry friends happy and healthy!
         </h3>
         <div className="mt-12">
-          <Button text="Get Started" />
+          <Button text="Get Started" icon="true" />
         </div>
       </div>
       <div>
