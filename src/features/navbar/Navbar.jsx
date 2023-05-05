@@ -4,20 +4,21 @@ import { CgProfile } from "react-icons/cg";
 import { RiMenuFoldLine, RiMenuUnfoldFill } from "react-icons/ri";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Logo from "../../asset/logo.png";
+import { getUser } from "../../api/globalSlices/user.slics";
+
 import "./navbar.css";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [profile, setProfile] = useState(false);
   const count = useSelector((state) => state.counter.value);
-
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const onToggleMenu = (e) => {
     setMenu(!menu);
     setProfile(false);
-
-    // laiba bika ba reactr
   };
   const onToggleProfile = (e) => {
     setProfile(!profile);
@@ -102,16 +103,35 @@ const Navbar = () => {
               <li>Profile</li>
             </Link>
           </ul>
-          <Link
-            to="/signin"
-            onClick={() => {
-              setProfile(false);
-            }}
-          >
-            <button className="bg-daisy-bush-900 text-white w-auto py-[5px] px-[25px] rounded-md my-4 ">
-              <span className="flex gap-2 items-center">Login</span>
-            </button>
-          </Link>
+
+          {user ? (
+            <Link
+              onClick={() => {
+                setProfile(false);
+              }}
+            >
+              <button
+                onClick={(e) => {
+                  dispatch(getUser(null));
+                  localStorage.removeItem("access_token");
+                }}
+                className="bg-red text-white w-auto py-[5px] px-[25px] rounded-md my-4 "
+              >
+                <span className="flex gap-2 items-center">LogOut</span>
+              </button>
+            </Link>
+          ) : (
+            <Link
+              to="/signin"
+              onClick={() => {
+                setProfile(false);
+              }}
+            >
+              <button className="bg-daisy-bush-900 text-white w-auto py-[5px] px-[25px] rounded-md my-4 ">
+                <span className="flex gap-2 items-center">LogIn</span>
+              </button>
+            </Link>
+          )}
         </div>
       ) : (
         ""

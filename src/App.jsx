@@ -8,11 +8,17 @@ import Products from "./page/Products";
 import SingleProduct from "./page/SingleProduct";
 import ScrollToTop from "./features/scroll/ScrollToUp";
 import Login from "./page/Login";
+import { useDispatch, useSelector } from "react-redux";
+
 import Signup from "./features/login/Signup";
 import Checkout from "./features/checkout/Checkout.jsx";
 import Billing from "./features/checkout/Billing";
+import Protected from "./features/protected/Protected";
+import NotAuthorized from "./features/protected/NotAuthorized";
 
 function App() {
+  const { user } = useSelector((state) => state.user);
+
   return (
     <div className="min-h-[100%]">
       <ScrollToTop />
@@ -28,10 +34,14 @@ function App() {
         </Route>
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/checkout">
-          <Route index element={<Checkout />} />
-          <Route path="billing" element={<Billing />} />
+        <Route element={<Protected user={user} />}>
+          <Route path="/checkout">
+            <Route index element={<Checkout />} />
+            <Route path="billing" element={<Billing />} />
+          </Route>
         </Route>
+        <Route path="/403" element={<NotAuthorized />} />
+
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
       <Container>
