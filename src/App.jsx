@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "./features/container/Container";
 import Navbar from "./features/navbar/Navbar";
 import Home from "./page/Home";
@@ -15,10 +15,19 @@ import Checkout from "./features/checkout/Checkout.jsx";
 import Billing from "./features/checkout/Billing";
 import Protected from "./features/protected/Protected";
 import NotAuthorized from "./features/protected/NotAuthorized";
+import { useGetCurrentUserQuery } from "./api/auth";
+import { getUser } from "./api/globalSlices/user.slics";
 
 function App() {
   const { user } = useSelector((state) => state.user);
+  const { data, isError, isSuccess, isLoading } = useGetCurrentUserQuery();
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (isSuccess && data) {
+      dispatch(getUser(data.data));
+    }
+  }, [data]);
   return (
     <div className="min-h-[100%]">
       <ScrollToTop />
