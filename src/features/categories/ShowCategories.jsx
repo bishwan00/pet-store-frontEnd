@@ -5,14 +5,17 @@ import Img2 from "../../asset/pngwing 2.svg";
 import Img3 from "../../asset/pngwing 3.svg";
 import Img4 from "../../asset/pngwing 4.svg";
 import Img5 from "../../asset/pngwing 5.svg";
+import { useGetAllCategoryQuery } from "../../api/category";
 const ShowCategories = () => {
+  const { data, isLoading } = useGetAllCategoryQuery({ limit: 5 });
+
   return (
     <div className="flex justify-evenly mt-20 flex-wrap">
-      <SingleCategories text="Dog" img={Img1} />
-      <SingleCategories text="Cat" img={Img2} />
-      <SingleCategories text="Bird" img={Img3} />
-      <SingleCategories text="Small Animal" img={Img4} />
-      <SingleCategories text="Horse" img={Img5} />
+      {isLoading ? (
+        <> Loading...</>
+      ) : (
+        data.data?.map((category) => <SingleCategories category={category} />)
+      )}
     </div>
   );
 };

@@ -1,49 +1,53 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
-const Pagination = () => {
-  let [num, setNum] = useState(1);
-  let [cur, setCur] = useState(1);
-  const pages = [
-    { page: num },
-    { page: num + 1 },
-    { page: num + 2 },
-    { page: num + 3 },
-    { page: num + 4 },
-    { page: num + 5 },
-  ];
-  const next = () => {
-    setNum(++num);
+const Pagination = ({ numberOfPage, onPageChange }) => {
+  const [cur, setCur] = useState(1);
+
+  useEffect(() => {
+    onPageChange(cur);
+  }, [cur, onPageChange]);
+
+  const handlePageClick = (page) => {
+    setCur(page);
   };
-  const back = () => {
-    num > 1 && setNum(--num);
+
+  const goToPreviousPage = () => {
+    if (cur > 1) {
+      setCur(cur - 1);
+    }
   };
+
+  const goToNextPage = () => {
+    if (cur < numberOfPage) {
+      setCur(cur + 1);
+    }
+  };
+
   return (
-    <div className="flex bg-white rounded-lg ">
+    <div className="flex bg-white rounded-lg">
       <button
-        onClick={back}
+        onClick={goToPreviousPage}
         className="px-4 rounded-l-lg border-2 border-r-0 border-daisy-bush-600 w-12 hover:bg-daisy-bush-600 hover:text-white"
       >
         <SlArrowLeft />
       </button>
 
-      {pages.map((pg, i) => {
-        return (
-          <button
-            key={i}
-            onClick={() => setCur(pg.page)}
-            className={`h-12 border-2 border-r-0 border-daisy-bush-600 w-12 ${
-              cur === pg.page && "bg-daisy-bush-600 text-white"
-            }`}
-          >
-            {pg.page}
-          </button>
-        );
-      })}
+      {Array.from({ length: numberOfPage }, (_, index) => (
+        <button
+          key={index}
+          onClick={() => handlePageClick(index + 1)}
+          className={`h-12 border-2 border-r-0 border-daisy-bush-600 w-12 ${
+            cur === index + 1 ? "bg-daisy-bush-600 text-white" : ""
+          }`}
+        >
+          {index + 1}
+        </button>
+      ))}
+
       <button
-        onClick={next}
-        className="px-4 rounded-r-lg border-2  border-daisy-bush-600 w-12 hover:bg-daisy-bush-600 hover:text-white"
+        onClick={goToNextPage}
+        className="px-4 rounded-r-lg border-2 border-daisy-bush-600 w-12 hover:bg-daisy-bush-600 hover:text-white"
       >
         <SlArrowRight />
       </button>

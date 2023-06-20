@@ -15,6 +15,7 @@ const Navbar = () => {
   const [profile, setProfile] = useState(false);
   const count = useSelector((state) => state.counter.value);
   const { user } = useSelector((state) => state.user);
+
   const dispatch = useDispatch();
   const onToggleMenu = (e) => {
     setMenu(!menu);

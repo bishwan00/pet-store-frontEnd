@@ -19,8 +19,22 @@ const authApi = api.injectEndpoints({
         body: body,
       }),
     }),
+    order: builder.mutation({
+      query: (body, id) => {
+        console.log(id); // Log the ID being sent to the order mutation
+        return {
+          url: `/orders/${id}`,
+          method: "POST",
+          body: body,
+        };
+      },
+    }),
   }),
 });
 
-export const { useSignupMutation, useGetCurrentUserQuery, useLoginMutation } =
-  authApi;
+export const {
+  useSignupMutation,
+  useGetCurrentUserQuery,
+  useLoginMutation,
+  useOrderMutation,
+} = authApi;

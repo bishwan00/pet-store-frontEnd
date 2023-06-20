@@ -39,8 +39,9 @@ function App() {
 
         <Route path="/products">
           <Route index element={<Products />} />
-          <Route path=":id" element={<SingleProduct />} />
+          <Route path="product/:id" element={<SingleProduct />} />
         </Route>
+
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route element={<Protected user={user} />}>

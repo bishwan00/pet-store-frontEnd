@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 import { increment } from "../../redux/counterSlice";
 
 import { useDispatch } from "react-redux";
-const SingleCard = ({ img }) => {
+const SingleCard = ({ product }) => {
   const stars = Array(5).fill(0);
   const rate = 4;
   const colors = {
@@ -16,11 +16,11 @@ const SingleCard = ({ img }) => {
   return (
     <div className="flex flex-wrap justify-center">
       <div className="bg-daisy-bush-100 p-4 w-80 md:w-60">
-        <img src={img} alt="product Image" className="" />
+        <img src={product.image} alt="product Image" className="" />
       </div>
       <div className="w-80 shadow-md">
         <div className="m-4">
-          <h1 className=" text-2xl font-bold">Title Card</h1>
+          <h1 className=" text-2xl font-bold">{product.fullName}</h1>
           <span className="flex list-none">
             {stars.map((_, index) => {
               return (

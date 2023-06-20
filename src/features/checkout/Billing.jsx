@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../container/Container";
 import { Link } from "react-router-dom";
+import { useOrderMutation } from "../../api/auth";
+import { useSelector } from "react-redux";
 
 const Billing = () => {
+  const { user } = useSelector((state) => state.user);
+
+  const [inputeData, setInputData] = useState({});
+  const [order, { data, isError }] = useOrderMutation();
+  const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+  const handleInput = (e) => {
+    setInputData({ ...inputeData, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (user && user._id) {
+      order(inputeData, user._id);
+    } else {
+      // Handle the case when the user object or user._id is not available
+    }
+  };
   return (
     <Container>
       <div className="my-40 flex gap-4 justify-center md:flex-row flex-col-reverse">
@@ -24,6 +42,8 @@ const Billing = () => {
                   class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="grid-first-name"
                   type="text"
+                  name="firstName"
+                  onChange={handleInput}
                   placeholder="Jane"
                 />
                 {/* <p class="text-red text-xs italic">
@@ -41,6 +61,8 @@ const Billing = () => {
                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-last-name"
                   type="text"
+                  name="lastName"
+                  onChange={handleInput}
                   placeholder="Doe"
                 />
               </div>
@@ -57,6 +79,8 @@ const Billing = () => {
                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id=""
                   type="text"
+                  name="phoneNumber"
+                  onChange={handleInput}
                   placeholder="07xx xxx xxxx"
                 />
               </div>
@@ -73,6 +97,8 @@ const Billing = () => {
                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id=""
                   type="text"
+                  name="address"
+                  onChange={handleInput}
                   placeholder="Main St"
                 />
               </div>
@@ -89,6 +115,8 @@ const Billing = () => {
                   class="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="city"
                   type="text"
+                  name="city"
+                  onChange={handleInput}
                   placeholder="suly"
                 />
                 {/* <p class="text-red text-xs italic">
@@ -125,7 +153,8 @@ const Billing = () => {
                   placeholder="..."
                 /> */}
                 <textarea
-                  name=""
+                  name="comment"
+                  onChange={handleInput}
                   className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id=""
                   cols="30"
@@ -137,48 +166,50 @@ const Billing = () => {
           <hr />
           <div className="w-full text-center my-10">
             <Link className="border-b text-center">
-              <button className="bg-daisy-bush-900 w-full  text-white w-auto py-[10px] px-[15px] rounded-md">
+              <button
+                className="bg-daisy-bush-900 w-full  text-white w-auto py-[10px] px-[15px] rounded-md"
+                onClick={handleSubmit}
+              >
                 <span className=" text-center">Continue to checkout</span>
               </button>
             </Link>
           </div>
         </div>
-        <div className=" md:w-[30%] mx-2">
+        <div className="md:w-[30%] mx-2">
           <div className="flex justify-between">
             <span className="text-2xl mb-4 ml-4 text-daisy-bush-800">
               Your cart
             </span>{" "}
             <span className="text-2xl mb-4 mr-4 text-white font-bold rounded-[50%] w-6 text-center bg-daisy-bush-800">
-              3
+              {cartData.length}
             </span>
           </div>
           <div className="flex flex-col border p-2 rounded-md border-pale-sky-200">
-            <div className="flex justify-between mx-2 border-b mt-4 border-pale-sky-200">
-              <div>
-                <div className="font-bold">Product</div>
-                <div className="text-pale-sky-400">Quantity: 1</div>
+            {cartData.map((item) => (
+              <div
+                key={item._id}
+                className="flex justify-between mx-2 border-b mt-4 border-pale-sky-200"
+              >
+                <div>
+                  <div className="font-bold">{item.fullName}</div>
+                  <div className="text-pale-sky-400">
+                    Quantity: {item.quantity}
+                  </div>
+                </div>
+                <div>{item.price}$</div>
               </div>
-              <div>50$</div>
-            </div>
-            <div className="flex justify-between mx-2 border-b mt-4 border-pale-sky-200">
-              <div>
-                <div className="font-bold">Product</div>
-                <div className="text-pale-sky-400">Quantity: 1</div>
-              </div>
-              <div>50$</div>
-            </div>
-            <div className="flex justify-between mx-2 border-b mt-4 border-pale-sky-200">
-              <div>
-                <div className="font-bold">Product</div>
-                <div className="text-pale-sky-400">Quantity: 1</div>
-              </div>
-              <div>50$</div>
-            </div>
+            ))}
             <div className="flex justify-between mx-2 mt-4">
               <div>
                 <div className="text-lg">Total (USD)</div>
               </div>
-              <div>50$</div>
+              <div>
+                {cartData.reduce(
+                  (total, item) => total + item.price * item.quantity,
+                  0
+                )}
+                $
+              </div>
             </div>
           </div>
         </div>
